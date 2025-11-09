@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epekto ng 🏭 - Tanong</title>
+    <!-- Google Fonts: EB Garamond (Headings) and Arimo (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 1. THE SETUP */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            display: grid;
+            grid-template-columns: 1fr;
+            margin: 0;
+            min-height: 100vh;
+            padding: 20px 0;
+            place-items: center;
+        }
+
+        .slide-container {
+            align-items: center;
+            background-color: #fff3dd; /* Main warm cream background */
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 720px;
+            justify-content: flex-start;
+            overflow: hidden;
+            padding: 60px;
+            position: relative;
+            width: 1280px;
+        }
+
+        /* 2. CONSISTENT TYPOGRAPHY */
+        .slide-container h1,
+        .slide-container h2,
+        .slide-container h3 {
+            font-family: 'EB Garamond', serif;
+            color: #403D39;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .slide-container p,
+        .slide-container .subtitle,
+        .slide-container a,
+        .slide-container .icon-label {
+            font-family: 'Arimo', sans-serif;
+            color: #403D39;
+        }
+
+        .slide-container .slide-title {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            width: 90%;
+            padding: 40px;
+        }
+
+        .main-emoji {
+            font-size: 160px; /* Slightly smaller for more space */
+            margin-bottom: 30px;
+        }
+
+        .question-text {
+            font-size: 32px;
+            font-family: 'EB Garamond', serif;
+            font-weight: 500;
+            color: #A0522D; /* Sienna color for emphasis */
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* --- HINT BLOCK STYLES --- */
+        #hint-area {
+            background-color: #fff8e8;
+            border: 2px dashed #E76F51;
+            border-radius: 8px;
+            padding: 20px 30px;
+            margin: 20px 0;
+            max-width: 700px;
+            text-align: center;
+            opacity: 0; /* Hidden state */
+            transform: scale(0.95);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+            pointer-events: none;
+        }
+        
+        #hint-area.visible {
+            opacity: 1; /* Visible state */
+            transform: scale(1);
+            pointer-events: auto;
+        }
+        
+        #hint-area p {
+            font-size: 22px;
+            color: #38761d;
+            font-weight: 500;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* --- NAVIGATION STYLES --- */
+        .nav-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 60px;
+            right: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: calc(100% - 120px);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #A0522D; /* Sienna */
+            color: #fff3dd;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Arimo', sans-serif;
+            font-size: 20px;
+            transition: background-color 0.2s, transform 0.1s, opacity 0.3s;
+            box-shadow: 0 4px #8B4513;
+            cursor: pointer;
+            border: none;
+        }
+
+        .nav-button:hover {
+            background-color: #E76F51;
+            transform: translateY(-2px);
+            box-shadow: 0 6px #8B4513;
+        }
+
+        .nav-button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px #8B4513;
+        }
+
+        /* Specific Button Styles */
+        .hint-button {
+            background-color: #F7C331; /* Bright Yellow */
+            color: #403D39;
+            box-shadow: 0 4px #d4a341;
+        }
+        .hint-button:hover {
+            background-color: #ffe37d;
+            box-shadow: 0 6px #d4a341;
+        }
+        .hint-button:active {
+            box-shadow: 0 2px #d4a341;
+        }
+
+        .reveal-button {
+            background-color: #6C5CE7; /* Purple */
+            box-shadow: 0 4px #5444b0;
+        }
+        .reveal-button:hover {
+            background-color: #8C7DFF;
+            box-shadow: 0 6px #5444b0;
+        }
+        .reveal-button:active {
+            box-shadow: 0 2px #5444b0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide-container" id="slide3_detail">
+        <!-- Updated Slide Title -->
+        <h2 class="slide-title">Ikatlong Emoji: Pagsusuri</h2>
+        
+        <div class="content-area">
+            <!-- Updated Emoji -->
+            <div class="main-emoji">🏭</div>
+            
+            <!-- Updated Question Text -->
+            <p class="question-text">Ang 🏭 (Factory) ay tumutukoy sa anong kritikal na <strong>Aspeto ng Pambansang Pag-unlad</strong>?</p>
+
+            <div id="hint-area">
+                <!-- Updated Hint -->
+                <p><strong>Pahiwatig:</strong> Ang mga pabrika ay pangunahing pinagkukunan ng mga produkto, nagbibigay ng trabaho, at nagpapatakbo ng **produksyon** at **kalakalan** na siyang nagpapalago sa kita ng bansa.</p>
+            </div>
+            
+            <div id="action-spacer" style="height: 100px;"></div>
+
+        </div>
+        
+        <div class="nav-controls">
+            <!-- Back to Selection Button -->
+            <a href="slide_5.html" class="nav-button">
+                <i class="fa-solid fa-arrow-left"></i> Bumalik sa Pagpili
+            </a>
+            
+            <div class="action-buttons">
+                <button id="hint-btn" class="nav-button hint-button">
+                    Pahiwatig (Hint) <i class="fa-solid fa-lightbulb"></i>
+                </button>
+                <!-- Updated link to the answer slide -->
+                <a id="reveal-btn" href="pickanemoji3_answer.html" class="nav-button reveal-button">
+                    Ibunyag ang Sagot <i class="fa-solid fa-eye"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const hintBtn = document.getElementById('hint-btn');
+        const hintArea = document.getElementById('hint-area');
+        
+        hintBtn.addEventListener('click', () => {
+            // 1. Show the hint
+            hintArea.classList.add('visible');
+            
+            // 2. Change hint button text/state
+            hintBtn.innerHTML = 'Nakita ang Pahiwatig <i class="fa-solid fa-check"></i>';
+            hintBtn.disabled = true; // Disable the <button> itself after clicking
+        });
+    </script>
+
+</body>
+</html>
