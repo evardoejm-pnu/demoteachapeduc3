@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 5: Emoji Hub</title>
+    <!-- Google Fonts: EB Garamond (Headings) and Arimo (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 1. THE SETUP */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            display: grid;
+            grid-template-columns: 1fr;
+            margin: 0;
+            min-height: 100vh;
+            padding: 20px 0;
+            place-items: center;
+        }
+
+        .slide-container {
+            align-items: center;
+            background-color: #fff3dd; /* Main warm cream background */
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 720px;
+            justify-content: flex-start;
+            overflow: hidden;
+            padding: 60px;
+            position: relative;
+            width: 1280px;
+        }
+
+        /* 2. CONSISTENT TYPOGRAPHY */
+        .slide-container h1,
+        .slide-container h2,
+        .slide-container h3 {
+            font-family: 'EB Garamond', serif;
+            color: #403D39;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .slide-container p,
+        .slide-container .subtitle,
+        .slide-container a,
+        .slide-container .icon-label {
+            font-family: 'Arimo', sans-serif;
+            color: #403D39;
+        }
+
+        .slide-container .slide-title {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 100px; /* Increased margin for better center alignment */
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Tiled_Text_With_Icons Layout (Modified for Emoji Board) */
+        .tiled-content {
+            align-items: stretch;
+            display: flex;
+            gap: 60px; /* Increased gap */
+            justify-content: center;
+            width: 90%;
+            height: 100%;
+        }
+
+        .tile {
+            align-items: center;
+            background-color: #f4f0e6; /* Light beige tile */
+            border-radius: 12px;
+            border: 1px solid #D4A373;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            /* Height is now flexible to center the content vertically */
+            justify-content: center;
+            padding: 30px;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .tile:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .tile .icon {
+            font-size: 150px; /* Even larger icon/emoji */
+            /* Removed margin-bottom since h3 is gone */
+            color: #403D39;
+        }
+
+        /* --- NAVIGATION STYLES --- */
+        .nav-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 60px;
+            right: 60px;
+            display: flex;
+            justify-content: space-between;
+            width: calc(100% - 120px);
+            pointer-events: none;
+        }
+        
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #A0522D; /* Sienna */
+            color: #fff3dd;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Arimo', sans-serif;
+            font-size: 20px;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 4px #8B4513;
+            pointer-events: auto;
+        }
+
+        .nav-button:hover {
+            background-color: #E76F51;
+            transform: translateY(-2px);
+            box-shadow: 0 6px #8B4513;
+        }
+
+        .nav-button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px #8B4513;
+        }
+        /* Ensures empty span takes up space for alignment */
+        .nav-controls span {
+            width: 100px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Slide 5: Emoji Hub (Interactive - HINT-FREE) -->
+    <div class="slide-container" id="slide5">
+        <h2 class="slide-title">Panuto: Pumili ng isang emoji at tukuyin ang epekto nito.</h2>
+        <div class="content-area" style="flex-grow: 1; display: flex; align-items: center; justify-content: center; width: 100%;">
+            <!-- This is the interactive hub. Each tile links to its own page. -->
+            <div class="tiled-content">
+                <!-- 1. VOTING EMOJI -->
+                <a href="pickanemoji1.html" class="tile">
+                    <div class="icon">🗳️</div>
+                    <!-- Removed <h3>Politika</h3> -->
+                </a>
+                <!-- 2. DRESS EMOJI -->
+                <a href="pickanemoji2.html" class="tile">
+                    <div class="icon">👗</div>
+                    <!-- Removed <h3>Sosyo-Kultural</h3> -->
+                </a>
+                <!-- 3. FACTORY EMOJI -->
+                <a href="pickanemoji3.html" class="tile">
+                    <div class="icon">🏭</div>
+                    <!-- Removed <h3>Ekonomiya</h3> -->
+                </a>
+            </div>
+        </div>
+        <!-- Removed Icon Bar for Literacy and SDGs -->
+        
+        <!-- Navigation -->
+        <div class="nav-controls">
+            <a href="slide_4.html" class="nav-button"><i class="fa-solid fa-arrow-left"></i> Nakaraan</a>
+            <!-- Removed Susunod button per request -->
+            <span></span>
+        </div>
+    </div>
+
+</body>
+</html>
