@@ -1,1 +1,237 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epekto ng 👗 - Sagot</title>
+    <!-- Google Fonts: EB Garamond (Headings) and Arimo (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 1. THE SETUP */
+        * {
+            box-sizing: border-box;
+        }
 
+        body {
+            background-color: #f3f4f6;
+            display: grid;
+            grid-template-columns: 1fr;
+            margin: 0;
+            min-height: 100vh;
+            padding: 20px 0;
+            place-items: center;
+        }
+
+        .slide-container {
+            align-items: center;
+            background-color: #e8f9e8; /* Light Green/Success Background */
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 720px;
+            justify-content: flex-start;
+            overflow: hidden;
+            padding: 60px;
+            position: relative;
+            width: 1280px;
+        }
+
+        /* 2. CONSISTENT TYPOGRAPHY */
+        .slide-container h1,
+        .slide-container h2,
+        .slide-container h3 {
+            font-family: 'EB Garamond', serif;
+            color: #38761d; /* Dark Green */
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .slide-container p,
+        .slide-container a,
+        .slide-container .icon-label {
+            font-family: 'Arimo', sans-serif;
+            color: #403D39;
+        }
+
+        .slide-container .slide-title {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            width: 90%;
+            padding: 40px;
+            max-width: 800px;
+        }
+
+        .main-emoji {
+            font-size: 160px;
+            margin-bottom: 30px;
+        }
+
+        /* --- ANSWER BLOCK STYLES --- */
+        #answer-reveal {
+            background-color: #ffffff;
+            border: 3px solid #38761d; /* Dark Green Border */
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            padding: 40px 50px;
+            margin-top: 30px;
+            text-align: center;
+            width: 100%;
+        }
+
+        #answer-reveal h3 {
+            /* This is the main answer: SOSYO-KULTURAL */
+            font-size: 48px;
+            color: #E63946; /* Reddish for Social/Cultural Concepts */
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #38761d;
+        }
+
+        #answer-reveal p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .explanation-title {
+            font-size: 28px;
+            font-family: 'EB Garamond', serif;
+            font-weight: 700;
+            color: #A0522D; /* Sienna */
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        
+        .explanation-text {
+            font-size: 24px;
+            color: #000;
+            font-weight: 500;
+        }
+
+        .sdg-tag {
+            background-color: #ff3a21; /* Red for SDG 5 (Gender Equality uses a red/pink scheme) */
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 20px;
+            display: inline-block;
+            margin-top: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- NAVIGATION STYLES --- */
+        .nav-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 60px;
+            right: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: calc(100% - 120px);
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #A0522D; /* Sienna */
+            color: #fff3dd;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Arimo', sans-serif;
+            font-size: 20px;
+            transition: background-color 0.2s, transform 0.1s, opacity 0.3s;
+            box-shadow: 0 4px #8B4513;
+            cursor: pointer;
+            border: none;
+        }
+
+        .nav-button:hover {
+            background-color: #E76F51;
+            transform: translateY(-2px);
+            box-shadow: 0 6px #8B4513;
+        }
+
+        .nav-button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px #8B4513;
+        }
+        
+        .back-to-question-button {
+            background-color: #F7C331; /* Yellow */
+            color: #403D39;
+            box-shadow: 0 4px #d4a341;
+        }
+        .back-to-question-button:hover {
+            background-color: #ffe37d;
+            box-shadow: 0 6px #d4a341;
+        }
+        .back-to-question-button:active {
+            box-shadow: 0 2px #d4a341;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Slide: Answer Page for 👗 -->
+    <div class="slide-container" id="slide2_answer">
+        <h2 class="slide-title">Ang Tamang Sagot</h2>
+        
+        <div class="content-area">
+            <!-- Updated Emoji -->
+            <div class="main-emoji">👗</div>
+            
+            <div id="answer-reveal">
+                <!-- Updated Answer -->
+                <h3>SOSYO-KULTURAL</h3>
+                
+                <p>Ang aspetong **Sosyo-Kultural** ay tumutukoy sa mga kaugalian, tradisyon, paniniwala, at pag-uugali na humuhubog sa isang lipunan. Ang damit (dress) ay isang makapangyarihang simbolo ng **pagkakakilanlan (identity)**, **kasarian (gender)**, at mga **panlipunang inaasahan (social expectations)** na nakakaapekto sa ugnayan ng tao at kultura.</p>
+
+                <p class="explanation-title">Kasanayang Kinakailangan (Literacy):</p>
+                <!-- Updated Literacy -->
+                <p class="explanation-text">Cultural and Gender Literacy</p>
+                
+                <p class="explanation-title">Kaugnay na Sustainable Development Goal (SDG):</p>
+                <!-- Updated SDG -->
+                <div class="sdg-tag">SDG 5: Gender Equality</div>
+            </div>
+        </div>
+        
+        <!-- Navigation and Action Controls -->
+        <div class="nav-controls">
+            <!-- Back to Question Button (Left) - Links to pickanemoji2.html -->
+            <a href="pickanemoji2.html" class="nav-button back-to-question-button">
+                <i class="fa-solid fa-lightbulb"></i> Balik sa Tanong at Pahiwatig
+            </a>
+
+            <!-- Back to Choices Button (Right) - Links to slide_5.html -->
+            <a href="slide_5.html" class="nav-button">
+                <i class="fa-solid fa-arrow-left"></i> Bumalik sa Pagpili (Slide 5)
+            </a>
+            
+        </div>
+    </div>
+
+</body>
+</html>
