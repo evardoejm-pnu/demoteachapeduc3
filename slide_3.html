@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 3: Balita Content</title>
+    <!-- Google Fonts: EB Garamond (Headings) and Arimo (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 1. THE SETUP */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            display: grid;
+            grid-template-columns: 1fr;
+            margin: 0;
+            min-height: 100vh;
+            padding: 20px 0;
+            place-items: center;
+        }
+
+        .slide-container {
+            align-items: center;
+            background-color: #fff3dd; /* Main warm cream background */
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 720px;
+            justify-content: flex-start; /* Aligned to top for content */
+            overflow: hidden;
+            padding: 60px;
+            position: relative;
+            width: 1280px;
+        }
+
+        /* 2. CONSISTENT TYPOGRAPHY */
+        .slide-container h1,
+        .slide-container h2,
+        .slide-container h3 {
+            font-family: 'EB Garamond', serif;
+            color: #403D39;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .slide-container p,
+        .slide-container li,
+        .slide-container .subtitle,
+        .slide-container a {
+            font-family: 'Arimo', sans-serif;
+            color: #403D39;
+        }
+
+        .slide-container .slide-title {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .slide-container h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #A0522D; /* Sienna accent */
+        }
+        
+        .slide-container p,
+        .slide-container li {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .slide-container .content-area {
+            align-items: flex-start;
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+            width: 100%;
+        }
+
+
+        /* 3. LAYOUT DEFINITIONS */
+
+        /* Image_Right_Text_Left Layout */
+        .two-column {
+            align-items: flex-start;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            width: 100%;
+        }
+
+        .two-column ul {
+            list-style: none;
+            margin: 0;
+            padding-left: 0;
+        }
+
+        .two-column li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px; /* Space for icon */
+        }
+        
+        .two-column li::before { /* Custom bullet for questions */
+            font-family: "Font Awesome 6 Free";
+            content: "\f059"; /* fa-circle-question */
+            font-weight: 900;
+            color: #A0522D; /* Sienna accent */
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+
+        .image-wrapper {
+            border-radius: 12px;
+            height: 450px; /* Fixed height for consistency */
+            overflow: hidden;
+            width: 100%;
+            border: 2px solid #D4A373; /* Beige border */
+        }
+
+        .image-wrapper img {
+            height: 100%;
+            object-fit: cover; /* Use cover for art */
+            width: 100%;
+            /* Fallback style for image loading issues */
+            background-color: #e0e0e0;
+            color: #666;
+            display: block;
+            text-align: center;
+            line-height: 450px; /* Center fallback text vertically */
+        }
+
+        /* Literacy/SDG Icon Styling */
+        .icon-bar {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            background-color: #f4f0e6; /* Light beige tile */
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #D4A373;
+        }
+        .icon-bar .icon {
+            font-size: 24px;
+            color: #E76F51; /* Terracotta */
+        }
+        .icon-bar .icon-label {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* --- NAVIGATION STYLES --- */
+        .nav-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 60px;
+            right: 60px;
+            display: flex;
+            justify-content: space-between;
+            width: calc(100% - 120px);
+            pointer-events: none;
+        }
+        
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #A0522D; /* Sienna */
+            color: #fff3dd;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Arimo', sans-serif;
+            font-size: 20px;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 4px #8B4513;
+            pointer-events: auto;
+        }
+
+        .nav-button:hover {
+            background-color: #E76F51;
+            transform: translateY(-2px);
+            box-shadow: 0 6px #8B4513;
+        }
+
+        .nav-button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px #8B4513;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Slide 3: Image_Right_Text_Left (Balitaan Content) -->
+    <div class="slide-container" id="slide3">
+        <h2 class="slide-title">Balita: AI at Kalakalan sa Timog Asya</h2>
+        <div class="content-area">
+            <div class="two-column">
+                <!-- Text Content Area -->
+                <div>
+                    <h3>Balita: AI at Kalakalan, Susi sa Paglago</h3>
+                    <p>Ayon sa ulat ng World Bank (Oktubre 2025), ang patuloy na paglago ng ekonomiya ng Timog Asya ay nakasalalay sa dalawang bagay: pag-angkop sa **Artificial Intelligence (AI)** at pagpapatupad ng **bukas na kalakalan** (pagtanggal ng *tariffs* o buwis sa importasyon).</p>
+                    
+                    <h3 style="margin-top: 30px;">Mga Gabay na Tanong:</h3>
+                    <ul>
+                        <li>Sino ang mga *winner* at *loser* sa pag-yakap sa AI (AI Displacement)?</li>
+                        <li>Anong Kanluraning kaisipan (hal. *free trade*) ang ipinapakita ng pag-alis ng *tariffs*?</li>
+                    </ul>
+
+                    <!-- Icon Bar for Literacy and SDG -->
+                    <div class="icon-bar">
+                        <div class="icon"><i class="fa-solid fa-book-open"></i></div>
+                        <p class="icon-label"><strong>21st Century Literacy:</strong> Information Literacy (Pagsusuri ng Balita)</p>
+                        <div class="icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <p class="icon-label"><strong>SDG 4:</strong> Quality Education (Pagkuha ng Kaalaman)</p>
+                    </div>
+                </div>
+                <!-- Image Area -->
+                <div>
+                    <div class="image-wrapper">
+                        <!-- UPDATED: Image source pointing to the repository path -->
+                        <img src="/demoteachapeduc3/images/stock/balitaanpic.png" alt="Abstract art of AI and global trade in Asia" onerror="this.onerror=null; this.innerHTML='&lt;p style=&quot;margin:0; padding: 20px;&quot;&gt;Larawan: AI at Kalakalan&lt;/p&gt;'">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navigation -->
+        <div class="nav-controls">
+            <!-- Patungo sa slide_2.html -->
+            <a href="slide_2.html" class="nav-button"><i class="fa-solid fa-arrow-left"></i> Nakaraan</a>
+            <!-- Patungo sa slide_4.html -->
+            <a href="slide_4.html" class="nav-button">Susunod <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+</body>
+</html>
