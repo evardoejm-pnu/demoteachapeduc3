@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 4: Pick an Emoji</title>
+    <!-- Google Fonts: EB Garamond (Headings) and Arimo (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 1. THE SETUP */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            display: grid;
+            grid-template-columns: 1fr;
+            margin: 0;
+            min-height: 100vh;
+            padding: 20px 0;
+            place-items: center;
+        }
+
+        .slide-container {
+            align-items: center;
+            background-color: #fff3dd; /* Main warm cream background */
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 720px;
+            justify-content: center;
+            overflow: hidden;
+            padding: 60px;
+            position: relative;
+            width: 1280px;
+        }
+
+        /* 2. CONSISTENT TYPOGRAPHY */
+        .slide-container h1,
+        .slide-container h2,
+        .slide-container h3 {
+            font-family: 'EB Garamond', serif;
+            color: #403D39;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .slide-container p,
+        .slide-container .subtitle,
+        .slide-container a {
+            font-family: 'Arimo', sans-serif;
+            color: #403D39;
+        }
+
+        .slide-container h2 {
+            font-size: 80px;
+        }
+
+        /* 3. LAYOUT DEFINITIONS */
+        
+        /* Section_Title Layout */
+        .section-title-layout {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        .section-title-layout p {
+            font-size: 24px;
+            margin: 0 auto;
+            max-width: 700px;
+        }
+
+        .section-title-layout hr {
+            background-color: #E76F51; /* Terracotta highlight */
+            border: none;
+            height: 5px;
+            margin: 30px auto;
+            width: 100px;
+        }
+
+        /* --- NAVIGATION STYLES --- */
+        .nav-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 60px;
+            right: 60px;
+            display: flex;
+            justify-content: space-between;
+            width: calc(100% - 120px);
+            pointer-events: none;
+        }
+        
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #A0522D; /* Sienna */
+            color: #fff3dd;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Arimo', sans-serif;
+            font-size: 20px;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 4px #8B4513;
+            pointer-events: auto;
+        }
+
+        .nav-button:hover {
+            background-color: #E76F51;
+            transform: translateY(-2px);
+            box-shadow: 0 6px #8B4513;
+        }
+
+        .nav-button:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px #8B4513;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Slide 4: Section_Title (Pick an Emoji) -->
+    <div class="slide-container" id="slide4">
+        <div class="section-title-layout">
+            <hr>
+            <h2>II. Pick an Emoji</h2>
+            <p>Tukuyin ang Epekto: Ekonomiya, Politika, o Sosyo-Kultural?</p>
+        </div>
+        <!-- Navigation -->
+        <div class="nav-controls">
+            <!-- Patungo sa slide_3.html -->
+            <a href="slide_3.html" class="nav-button"><i class="fa-solid fa-arrow-left"></i> Nakaraan</a>
+            <!-- Patungo sa slide_5.html (Ang Interactive Hub) -->
+            <a href="slide_5.html" class="nav-button">Susunod (Hub) <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+</body>
+</html>
