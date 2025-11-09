@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Epekto ng 🗳️</title>
-    <!-- Google Fonts: EB Garamond (Headings) and Arimo (Body) -->
+    <title>Epekto ng 🗳️ - Tanong</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* 1. THE SETUP */
@@ -91,7 +89,7 @@
             text-align: center;
         }
 
-        /* --- HINT BLOCK STYLES (HIDDEN BY DEFAULT) --- */
+        /* --- HINT BLOCK STYLES --- */
         #hint-area {
             background-color: #fff8e8;
             border: 2px dashed #E76F51;
@@ -118,54 +116,6 @@
             font-weight: 500;
             margin: 0;
             line-height: 1.5;
-        }
-
-
-        /* --- ANSWER BLOCK STYLES (HIDDEN BY DEFAULT) --- */
-        #answer-reveal {
-            background-color: #ffffff;
-            border: 3px solid #D4A373;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            padding: 30px 40px;
-            margin-top: 30px;
-            text-align: center;
-            max-width: 600px;
-            opacity: 0; /* Hidden state */
-            transform: translateY(20px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-            pointer-events: none;
-        }
-
-        #answer-reveal.visible {
-            opacity: 1; /* Visible state */
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        #answer-reveal h3 {
-            font-size: 36px;
-            color: #A0522D; /* Primary Category Color */
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px dashed #D4A373;
-        }
-
-        #answer-reveal p {
-            font-size: 20px;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .sdg-tag {
-            background-color: #1a73e8; /* Blue for SDG 16 */
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 18px;
-            display: inline-block;
-            margin-top: 10px;
         }
 
         /* --- NAVIGATION STYLES --- */
@@ -240,109 +190,55 @@
             box-shadow: 0 2px #5444b0;
         }
         
-        /* Disabled state */
-        .nav-button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: 0 4px rgba(0, 0, 0, 0.2);
-        }
-        .nav-button:disabled:hover {
-            background-color: #6C5CE7;
-            box-shadow: 0 4px rgba(0, 0, 0, 0.2);
-        }
-
+        /* Removed disabled styling for simplicity */
     </style>
 </head>
 <body>
 
-    <!-- Slide: Detail Page for 🗳️ -->
     <div class="slide-container" id="slide1_detail">
         <h2 class="slide-title">Unang Emoji: Pagsusuri</h2>
         
         <div class="content-area">
             <div class="main-emoji">🗳️</div>
             
-            <!-- UPDATED QUESTION -->
             <p class="question-text">Ang 🗳️ (Voting Box) ay tumutukoy sa anong kritikal na <strong>Aspeto ng Pambansang Pag-unlad</strong>?</p>
 
-            <!-- HINT AREA -->
             <div id="hint-area">
                 <p><strong>Pahiwatig:</strong> Kailangan mong pag-aralan ang mga plataporma at balita ng mga kandidato para hindi ka malinlang at makagawa ng matalinong desisyon sa araw ng eleksyon.</p>
             </div>
+            
+            <div id="action-spacer" style="height: 100px;"></div>
 
-            <!-- ANSWER AREA -->
-            <div id="answer-reveal">
-                <!-- UPDATED ANSWER TITLE -->
-                <h3>Aspeto ng Pag-unlad: DEMOKRATIKONG PAMAMAHALA</h3>
-                <p>Ang simbolong ito ay kumakatawan sa haligi ng <strong>Demokrasya</strong> at <strong>Civic Participation</strong>. Tumutukoy ito sa kahalagahan ng malinis na eleksyon at aktibong paglahok ng mamamayan sa pagpili ng kanilang lider.</p>
-
-                <p style="font-weight: bold; margin-bottom: 5px; margin-top: 15px;">Kaugnay na Literacy:</p>
-                <p style="font-size: 24px; color: #38761d;"><strong>Political Literacy</strong></p>
-                
-                <p style="font-weight: bold; margin-bottom: 5px;">Kaugnay na Sustainable Development Goal (SDG):</p>
-                <div class="sdg-tag">SDG 16: Peace, Justice, and Strong Institutions</div>
-            </div>
         </div>
         
-        <!-- Navigation and Action Controls -->
         <div class="nav-controls">
-            <!-- Back to Choices Button - NOTE: You might need to change 'slide_5.html' if your previous file was named differently -->
             <a href="slide_5.html" class="nav-button">
                 <i class="fa-solid fa-arrow-left"></i> Bumalik sa Pagpili
             </a>
             
-            <!-- Action Buttons (Hint and Reveal) -->
             <div class="action-buttons">
                 <button id="hint-btn" class="nav-button hint-button">
                     Pahiwatig (Hint) <i class="fa-solid fa-lightbulb"></i>
                 </button>
-                <button id="reveal-btn" class="nav-button reveal-button" disabled>
+                <a id="reveal-btn" href="pickanemoji1_answer.html" class="nav-button reveal-button">
                     Ibunyag ang Sagot <i class="fa-solid fa-eye"></i>
-                </button>
+                </a>
             </div>
         </div>
     </div>
 
     <script>
         const hintBtn = document.getElementById('hint-btn');
-        const revealBtn = document.getElementById('reveal-btn');
         const hintArea = document.getElementById('hint-area');
-        const answerBlock = document.getElementById('answer-reveal');
         
-        let isAnswerVisible = false;
-
         hintBtn.addEventListener('click', () => {
             // 1. Show the hint
             hintArea.classList.add('visible');
             
-            // 2. Enable the reveal button
-            revealBtn.disabled = false;
-            
-            // 3. Change hint button text/state
+            // 2. Change hint button text/state
             hintBtn.innerHTML = 'Nakita ang Pahiwatig <i class="fa-solid fa-check"></i>';
-            hintBtn.disabled = true; // Disable hint button after use
+            hintBtn.disabled = true; // Disable the <button> itself after clicking
         });
-
-        revealBtn.addEventListener('click', () => {
-            if (isAnswerVisible) {
-                // If visible, hide it
-                answerBlock.classList.remove('visible');
-                revealBtn.innerHTML = 'Ibunyag ang Sagot <i class="fa-solid fa-eye"></i>';
-                isAnswerVisible = false;
-            } else {
-                // If hidden, show it
-                answerBlock.classList.add('visible');
-                revealBtn.innerHTML = 'Itago ang Sagot <i class="fa-solid fa-eye-slash"></i>';
-                isAnswerVisible = true;
-            }
-        });
-
-        // Initialize state: if the hint is visible on load (for persistence), enable reveal.
-        if (hintArea.classList.contains('visible')) {
-            revealBtn.disabled = false;
-        }
-
     </script>
 
 </body>
