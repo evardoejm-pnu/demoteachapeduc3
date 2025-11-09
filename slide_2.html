@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slide 2: Balitaan</title>
-    <!-- Google Fonts: EB Garamond (Headings) and Arimo (Body) -->
+    <title>Ang Ating Pokus</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* 1. THE SETUP */
@@ -27,14 +25,13 @@
         }
 
         .slide-container {
-            align-items: center;
             background-color: #fff3dd; /* Main warm cream background */
             border-radius: 8px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             height: 720px;
-            justify-content: center;
+            justify-content: space-between;
             overflow: hidden;
             padding: 60px;
             position: relative;
@@ -42,7 +39,9 @@
         }
 
         /* 2. CONSISTENT TYPOGRAPHY */
-        .slide-container h2 {
+        .slide-container h1,
+        .slide-container h2,
+        .slide-container h3 {
             font-family: 'EB Garamond', serif;
             color: #403D39;
             margin: 0;
@@ -50,55 +49,135 @@
         }
 
         .slide-container p,
-        .slide-container a {
+        .slide-container .subtitle,
+        .slide-container a,
+        .slide-container li {
             font-family: 'Arimo', sans-serif;
             color: #403D39;
+            font-size: 20px;
+            line-height: 1.6;
         }
 
-        /* 3. LAYOUT DEFINITIONS */
-        
-        /* Section_Title Layout */
-        .section-title-layout {
-            align-items: center;
+        .slide-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #A0522D; /* Sienna */
+        }
+
+        /* 3. OPTIMIZED CONTENT GRID */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* 1/3 for SDG, 2/3 for Literacies */
+            gap: 40px;
+            flex-grow: 1;
+            padding-bottom: 20px;
+        }
+
+        /* --- SDG SECTION (LEFT COLUMN) --- */
+        .sdg-section {
+            background-color: #e6f7ff; /* Light blue background for education focus */
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
-            height: 100%;
-            justify-content: center;
+            align-items: center;
             text-align: center;
-            width: 100%;
+            border: 2px solid #2ECC71; /* SDG 4 Green border */
         }
 
-        .section-title-layout h2 {
+        .sdg-section h3 {
+            font-size: 32px;
+            color: #2ECC71; /* SDG 4 Green */
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .sdg-section .sdg-icon {
             font-size: 80px;
+            margin-bottom: 10px;
         }
 
-        .section-title-layout p {
-            font-size: 24px;
-            margin: 0 auto;
-            max-width: 700px;
+        .sdg-section p {
+            font-size: 18px;
+            line-height: 1.4;
         }
 
-        .section-title-layout hr {
-            background-color: #E76F51; /* Terracotta highlight */
-            border: none;
-            height: 5px;
-            margin: 30px auto;
-            width: 100px;
-        }
-
-
-        /* --- NAVIGATION STYLES --- */
-        .nav-controls {
-            position: absolute;
-            bottom: 30px;
-            left: 60px;
-            right: 60px;
+        /* --- LITERACY SECTION (RIGHT COLUMN) --- */
+        .literacy-section {
             display: flex;
-            justify-content: space-between;
-            width: calc(100% - 120px);
-            pointer-events: none;
+            flex-direction: column;
+            gap: 20px;
         }
         
+        .literacy-section h2 {
+            font-size: 36px;
+            text-align: left;
+            margin-bottom: 10px;
+            color: #E76F51;
+        }
+
+        .literacy-card {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            border-left: 8px solid; /* Dynamic color border for emphasis */
+            padding: 15px 25px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .literacy-card i {
+            font-size: 30px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .literacy-card-content h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .literacy-card-content p {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        /* Card Specific Colors */
+        .literacy-political {
+            border-left-color: #6C5CE7; /* Purple for Political/Governance */
+        }
+        .literacy-political i {
+            color: #6C5CE7;
+        }
+        
+        .literacy-cultural {
+            border-left-color: #F7C331; /* Yellow for Socio-Cultural */
+        }
+        .literacy-cultural i {
+            color: #F7C331;
+        }
+        
+        .literacy-economic {
+            border-left-color: #E76F51; /* Coral for Economic/Industrial */
+        }
+        .literacy-economic i {
+            color: #E76F51;
+        }
+
+
+        /* 4. NAVIGATION STYLES */
+        .nav-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #dcdcdc;
+        }
+
         .nav-button {
             display: inline-flex;
             align-items: center;
@@ -111,13 +190,13 @@
             font-weight: 700;
             font-family: 'Arimo', sans-serif;
             font-size: 20px;
-            transition: background-color 0.2s, transform 0.1s;
-            box-shadow: 0 4px #8B4513; /* Darker shadow */
-            pointer-events: auto;
+            transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+            box-shadow: 0 4px #8B4513;
+            cursor: pointer;
         }
 
         .nav-button:hover {
-            background-color: #E76F51; /* Terracotta */
+            background-color: #E76F51;
             transform: translateY(-2px);
             box-shadow: 0 6px #8B4513;
         }
@@ -126,28 +205,58 @@
             transform: translateY(2px);
             box-shadow: 0 2px #8B4513;
         }
-
     </style>
 </head>
 <body>
 
-    <!-- Slide 2: Section_Title for Balitaan -->
-    <div class="slide-container" id="slide2">
-        <div class="section-title-layout">
-            <hr>
-            <h2>I. Balitaan</h2>
-            <p>Pagsusuri sa Napapanahong Isyu</p>
+    <div class="slide-container" id="slide3_focus">
+        <h1 class="slide-title">Ang mga Aspektong Susuriin</h1>
+        
+        <div class="content-grid">
+            
+            <div class="sdg-section">
+                <div class="sdg-icon">&#x1F9E0;</div> <h3>SDG #4: Quality Education</h3>
+                <p>Ang kakayahang maging mapanuri at kritikal sa pag-unawa sa mga isyung panlipunan, ekonomiko, at politikal ay sentro ng <strong>Sustainable Development Goal 4</strong>&mdash;upang magkaroon ng inklusibo, pantay-pantay, at dekalidad na edukasyon para sa lahat.</p>
+                <hr style="width: 50%; border-color: #2ECC71;">
+                <p style="font-style: italic;">Ang pagiging literate ay hindi lang tungkol sa pagbasa. Ito ay tungkol sa pag-unawa sa mundo.</p>
+            </div>
+
+            <div class="literacy-section">
+                <h2>Tatlong Kritikal na Uri ng Literasiya:</h2>
+
+                <div class="literacy-card literacy-political">
+                    <i class="fa-solid fa-vote-yea"></i>
+                    <div class="literacy-card-content">
+                        <h3>Literasiyang Politikal (Political Literacy)</h3>
+                        <p>Ang kakayahang suriin ang pamamahala, batas, at mga plataporma ng kandidato upang makagawa ng matalinong desisyon sa pagboto. (Ito ay kinakatawan ng &#x1F5F3;).</p>
+                    </div>
+                </div>
+
+                <div class="literacy-card literacy-cultural">
+                    <i class="fa-solid fa-people-group"></i>
+                    <div class="literacy-card-content">
+                        <h3>Literasiyang Sosyo-Kultural (Socio-Cultural Literacy)</h3>
+                        <p>Pag-unawa at paggalang sa iba't ibang kultura, tradisyon, at panlipunang isyu upang makamit ang kapayapaan at pagkakaisa. (Ito ay kinakatawan ng &#x1F457;).</p>
+                    </div>
+                </div>
+
+                <div class="literacy-card literacy-economic">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                    <div class="literacy-card-content">
+                        <h3>Literasiyang Ekonomiko/Industriyal (Economic Literacy)</h3>
+                        <p>Ang kaalaman sa mga batayan ng ekonomiya, merkado, trabaho, at industriya na kritikal sa pag-unlad ng bansa. (Ito ay kinakatawan ng &#x1F3ED;).</p>
+                    </div>
+                </div>
+            </div>
+            
         </div>
         
-        <!-- Navigation Controls -->
         <div class="nav-controls">
-            <!-- Back Button (to index.html) -->
-            <a href="index.html" class="nav-button">
+            <a href="slide_2.html" class="nav-button">
                 <i class="fa-solid fa-arrow-left"></i> Balik
             </a>
             
-            <!-- Next Button (to slide_3.html) -->
-            <a href="slide_3.html" class="nav-button">
+            <a href="slide_4.html" class="nav-button">
                 Susunod <i class="fa-solid fa-arrow-right"></i>
             </a>
         </div>
