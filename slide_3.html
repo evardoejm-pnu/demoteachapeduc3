@@ -27,128 +27,153 @@
         }
 
         .slide-container {
-            align-items: center;
             background-color: #e9eef2; /* Lighter background */
             border-radius: 12px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
-            height: 720px;
-            justify-content: space-between; /* To push navigation to the bottom */
-            overflow: hidden;
+            height: 720px; /* FIXED HEIGHT: Essential for non-overflow */
+            justify-content: space-between; /* Space out header and footer */
+            overflow: hidden; /* Ensure nothing visually escapes */
             padding: 40px 60px;
-            position: relative;
             width: 1280px;
         }
 
         /* 2. CONSISTENT TYPOGRAPHY */
-        .slide-container h1,
-        .slide-container h2 {
+        .slide-container h2,
+        .slide-container h3 {
             font-family: 'EB Garamond', serif;
-            color: #2a3d45; /* Deep blue text for contrast */
+            color: #2a3d45;
             margin: 0;
             font-weight: 700;
+        }
+
+        .slide-title {
+            font-size: 44px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #0b2545;
+            border-bottom: 3px solid #a0c4e2;
+            padding-bottom: 8px;
             text-align: center;
         }
 
         .slide-container p {
             font-family: 'Arimo', sans-serif;
             color: #2a3d45;
-            font-size: 20px;
-            line-height: 1.6;
-        }
-
-        .main-header {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: #0b2545;
-            border-bottom: 4px solid #a0c4e2;
-            padding-bottom: 10px;
-        }
-
-        /* 3. CONTENT AREA */
-        .content-area {
-            display: flex;
-            gap: 40px;
-            justify-content: center;
-            width: 100%;
-            max-width: 1000px;
-        }
-
-        .news-story-content {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .news-image-box {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            margin-bottom: 20px;
-            width: 100%;
-            max-width: 700px;
-            overflow: hidden;
-        }
-
-        .news-image-box img {
-            width: 100%;
-            height: 300px; /* Fixed height for visual consistency */
-            object-fit: cover;
-            display: block;
-        }
-
-        .news-headline {
-            font-family: 'EB Garamond', serif;
-            font-size: 30px;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 10px;
-            color: #0b2545;
-        }
-
-        .news-summary-box {
-            font-size: 18px;
-            text-align: left;
-            margin-bottom: 20px;
-            color: #333;
-            background-color: #d9e3ed;
-            padding: 20px;
-            border-left: 5px solid #124e78;
-            border-radius: 0 8px 8px 0;
-            width: 100%;
-            max-width: 700px;
+            font-size: 17px; /* Adjusted font size for space */
+            line-height: 1.5;
         }
         
-        .news-summary-box p {
-            font-size: 20px;
-            margin: 0;
-            padding: 0;
+        /* 3. CORE CONTENT AREA */
+        .content-area {
+            flex-grow: 1; /* Takes up all space between title and footer */
+            width: 100%;
+            padding-top: 10px;
+            overflow: hidden; /* Control overflow at this level */
         }
 
-        .guiding-questions {
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 2px dashed #a0c4e2;
+        .two-column {
+            display: grid;
+            grid-template-columns: 3fr 2fr; /* Text wider than image */
+            gap: 40px;
+            height: 100%;
         }
 
-        .guiding-questions strong {
-            display: block;
-            font-size: 22px;
+        /* --- Text Column (Left) --- */
+        .two-column > div:first-child {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            max-height: 520px; /* Calculation: 720 - 40(top/bottom pad) - 44(title) - 20(title-margin) - 50(footer) */
+            overflow-y: auto; /* Scroll bar if content is too long */
+            padding-right: 15px; /* Space for scrollbar */
+        }
+        
+        .two-column > div:first-child h3 {
+            color: #0b2545;
+            font-size: 30px;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .two-column > div:first-child ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        .two-column > div:first-child li {
+            font-family: 'Arimo', sans-serif;
+            font-size: 18px;
+            color: #4a6c85;
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .two-column > div:first-child li::before {
+            content: "\f054"; /* Solid angle right icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
             color: #124e78;
-            margin-bottom: 5px;
-            font-family: 'EB Garamond', serif;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 14px;
         }
 
-        .guiding-questions p {
-             font-size: 18px;
-             line-height: 1.4;
-             margin-top: 5px;
-             color: #4a6c85;
-             font-weight: 500;
-             margin-left: 15px;
+
+        /* --- Image Column (Right) --- */
+        .two-column > div:last-child {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .image-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Important: max-height is set relative to its container to prevent overflow */
+            max-height: 500px;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* --- Icon Bar --- */
+        .icon-bar {
+            display: flex;
+            align-items: center;
+            padding-top: 15px;
+            margin-top: auto; /* Pushes itself to the bottom of the column */
+            border-top: 2px solid #a0c4e2;
+            flex-wrap: wrap;
+        }
+
+        .icon {
+            color: #124e78;
+            font-size: 24px;
+            margin-right: 10px;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .icon-label {
+            font-size: 15px !important;
+            font-weight: 500;
+            color: #4a6c85;
+            margin-right: 20px;
+            margin-bottom: 0;
         }
         
         /* 4. NAVIGATION */
@@ -156,7 +181,6 @@
             display: flex;
             justify-content: space-between;
             width: 100%;
-            max-width: 1000px;
             padding-top: 20px;
         }
 
@@ -189,57 +213,55 @@
             box-shadow: 0 1px #0b2545;
         }
 
-        .nav-button.left {
-            margin-right: auto;
-        }
-
-        .nav-button.right {
-            margin-left: auto;
-        }
-
     </style>
 </head>
 <body>
 
-    <!-- Slide 3: News and Guiding Questions -->
-    <div class="slide-container" id="slide_3">
+    <!-- Slide 3: News and Guiding Questions (Optimized 2-Column Layout) -->
+    <div class="slide-container" id="slide3">
         
-        <h1 class="main-header">Balita: AI at Kalakalan sa Timog Asya</h1>
+        <h2 class="slide-title">Balita: AI at Kalakalan sa Timog Asya</h2>
         
         <div class="content-area">
-            <div class="news-story-content">
+            <div class="two-column">
                 
-                <!-- Image Section -->
-                <div class="news-image-box">
-                    <!-- The specific image path requested by the user -->
-                    <img src="/demoteachapedu3/images/stock/balitaanpic.png" 
-                         alt="Larawan ng mga seryosong negosyante o data visualization ng ekonomiya ng Timog Asya." 
-                         onerror="this.src='https://placehold.co/700x300/124e78/fff?text=Balitaan+Image+Placeholder'">
-                </div>
-                
-                <!-- News Content -->
-                <div class="news-summary-box">
-                    <h2 class="news-headline">Balita: AI at Kalakalan, Susi sa Paglago</h2>
-                    <p>
-                        Ayon sa ulat ng World Bank (Oktubre 2025), ang patuloy na paglago ng ekonomiya ng Timog Asya ay nakasalalay sa dalawang bagay: pag-angkop sa <strong>Artificial Intelligence (AI)</strong> at pagpapatupad ng <strong>bukas na kalakalan</strong> (pagtanggal ng *tariffs* o buwis sa importasyon).
-                    </p>
+                <!-- LEFT COLUMN: Text Content (Guaranteed to not overflow via overflow-y: auto) -->
+                <div>
+                    <h3>Balita: AI at Kalakalan, Susi sa Paglago</h3>
+                    <p>Ayon sa ulat ng World Bank (Oktubre 2025), ang patuloy na paglago ng ekonomiya ng Timog Asya ay nakasalalay sa dalawang bagay: pag-angkop sa <strong>Artificial Intelligence (AI)</strong> at pagpapatupad ng <strong>bukas na kalakalan</strong> (pagtanggal ng *tariffs* o buwis sa importasyon).</p>
+                    
+                    <h3 style="margin-top: 30px;">Mga Gabay na Tanong:</h3>
+                    <ul>
+                        <li>Sino ang mga *winner* at *loser* sa pag-yakap sa AI (AI Displacement)?</li>
+                        <li>Anong Kanluraning kaisipan (hal. *free trade*) ang ipinapakita ng pag-alis ng *tariffs*?</li>
+                    </ul>
 
-                    <div class="guiding-questions">
-                        <strong>Mga Gabay na Tanong:</strong>
-                        <p>1. Sino ang mga *winner* at *loser* sa pag-yakap sa AI (AI Displacement)?</p>
-                        <p>2. Anong Kanluraning kaisipan (hal. *free trade*) ang ipinapakita ng pag-alis ng *tariffs*?</p>
+                    <div class="icon-bar">
+                        <div class="icon"><i class="fa-solid fa-book-open"></i></div>
+                        <p class="icon-label"><strong>21st Century Literacy:</strong> Information Literacy (Pagsusuri ng Balita)</p>
+                        <div class="icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <p class="icon-label"><strong>SDG 4:</strong> Quality Education (Pagkuha ng Kaalaman)</p>
                     </div>
                 </div>
                 
+                <!-- RIGHT COLUMN: Image -->
+                <div>
+                    <div class="image-wrapper">
+                        <!-- Corrected Image Source and added onerror fallback -->
+                        <img src="/demoteachapeduc3/images/stock/balitaanpic.png" 
+                             alt="Abstract art of AI and global trade in Asia"
+                             onerror="this.onerror=null; this.src='https://placehold.co/550x500/124e78/fff?text=Balitaan+Image+Placeholder'">
+                    </div>
+                </div>
             </div>
         </div>
         
         <!-- Navigation Footer -->
         <div class="navigation-footer">
-            <a href="slide_2.html" class="nav-button left">
-                <i class="fas fa-arrow-left"></i> Bumalik
+            <a href="slide_2.html" class="nav-button">
+                <i class="fas fa-arrow-left"></i> Balik
             </a>
-            <a href="slide_4.html" class="nav-button right">
+            <a href="slide_4.html" class="nav-button">
                 Susunod <i class="fas fa-arrow-right"></i>
             </a>
         </div>
